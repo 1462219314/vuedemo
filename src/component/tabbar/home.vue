@@ -1,13 +1,21 @@
 <template>
   <div>
     <!-- 轮播图区域 -->
-    <mt-swipe :auto="4000">
-      <mt-swipe-item v-for="item in lunbotuList" :key="item.id">
-        <a :href="item.url">
-          <img :src="item.img" alt="加载中。。" :onerror="defaultImg" />
-          <!-- :onerror 图片加载不出来就使用 onerror 中的路径 -->
-        </a>
-      </mt-swipe-item>
+
+    <mt-swipe :auto="4000" v-if="lunbotuList.length > 0">
+        <mt-swipe-item v-for="item in lunbotuList" :key="item.id">
+          <a :href="item.url">
+            <img :src="item.img" alt="加载中。。" :onerror="defaultImg" />
+            <!-- :onerror 图片加载不出来就使用 onerror 中的路径 -->
+          </a>
+        </mt-swipe-item>
+    </mt-swipe>
+    <mt-swipe :auto="4000" v-else>
+        <mt-swipe-item >
+          
+            <img src="awgwa" alt="加载中。。" :onerror="defaultImg" />
+           
+        </mt-swipe-item>
     </mt-swipe>
     <!-- 六宫格区域 -->
     <ul class="mui-table-view mui-grid-view mui-grid-9">
@@ -70,11 +78,10 @@ export default {
   methods: {
     getLunbotu() {
       //获取轮播图数据的方法
-      this.$http
-        .get("http://www.liulongbin.top:3005/api/getlunbo")
-        .then(result => {
+      this.$http.get("http://www.liulongbin.top:3005/api/getlunbo1").then(
+        result => {
           if (result.body.status === 0) {
-            this.lunbotuList = result.body.message;
+            this.lunbotuList = result.body.message || [];
             // this.$swal.fire({
             //   icon: "error",
             //   title: "Oops...",
@@ -87,14 +94,16 @@ export default {
               text: "Something went wrong!"
             });
           }
-        }, error => {
-            console.log(error);
-            this.$swal.fire({
-              icon: "error",
-              title: "出现错误了！！",
-              text: error.status+error.statusText
-            });
-        });
+        },
+        error => {
+          console.log(error);
+          this.$swal.fire({
+            icon: "error",
+            title: "出现错误了！！",
+            text: error.status + error.statusText
+          });
+        }
+      );
     }
   }
 };
