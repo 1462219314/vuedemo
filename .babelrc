@@ -1,0 +1,14 @@
+{
+    "presets": ["@babel/preset-env", "@babel/preset-react", "mobx"],
+    "plugins": [
+      ["component", 
+        {
+          "libraryName": "mint-ui",
+          "style": true
+        }
+      ],
+        "@babel/plugin-proposal-object-rest-spread",
+        "@babel/plugin-transform-runtime"
+       
+    ]
+}
