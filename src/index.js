@@ -2,7 +2,7 @@ import Vue from 'vue'
 
 //导入App根组件
 import app from './App.vue'
-
+  
 //按需导入mint ui
 
 import { Header } from 'mint-ui';
