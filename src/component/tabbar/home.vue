@@ -20,10 +20,10 @@
     <!-- 六宫格区域 -->
     <ul class="mui-table-view mui-grid-view mui-grid-9">
       <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
-        <a href="#">
+        <router-link to="/home/newslist">
           <span class="mui-icon mui-icon-home"></span>
-          <div class="mui-media-body">Home</div>
-        </a>
+          <div class="mui-media-body">新闻资讯</div>
+       </router-link>
       </li>
       <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
         <a href="#">
@@ -58,6 +58,7 @@
         </a>
       </li>
     </ul>
+    
   </div>
 </template>
 
@@ -78,7 +79,7 @@ export default {
   methods: {
     getLunbotu() {
       //获取轮播图数据的方法
-      this.$http.get("http://www.liulongbin.top:3005/api/getlunbo1").then(
+      this.$http.get("api/getlunbo").then(
         result => {
           if (result.body.status === 0) {
             this.lunbotuList = result.body.message || [];

@@ -19,6 +19,7 @@
     "babel-preset-mobx": "^2.0.0",
     "jquery": "^3.4.1",
     "mint-ui": "^2.2.13",
+    "moment": "^2.24.0",
     "vue-resource": "^1.5.1",
     "vue-sweetalert2": "^3.0.3"
   },
