@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"你好我是test环境\"",
-    "注释": "echo \"--open 打包完成后自动打开浏览器页面 ；--host 配置IP地址；--port 配置端口 --contentBase 设置根路径 --hot 热更新 不会重新编译一份新的文件\"",
-    "dev": "webpack-dev-server --open --host 127.0.0.1 --port 8484 --hot --contentBase src --hot",
+    "注释": "echo \"--open 打包完成后自动打开浏览器页面 ；--host 配置IP地址；--port 配置端口 --contentBase 设置根路径 --hot 热更新 不会重新编译一份新的文件  \"",
+    "dev": "webpack-dev-server --open --host 0.0.0.0 --port 8585 --hot --contentBase src  ",
     "dev1": "webpack"
   },
   "keywords": [],
